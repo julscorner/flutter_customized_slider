@@ -80,30 +80,28 @@ class _State extends State<MyApp> {
       ),
       body: Container(
         padding: EdgeInsets.all(32.0),
-        child: Column(
-          children: <Widget>[
-            SliderTheme(
-              data: theme.sliderTheme.copyWith(
-                activeTrackColor:
-                    Color.fromARGB(255, minRed, minGreen, minBlue),
-                inactiveTrackColor:
-                    Color.fromARGB(255, maxRed, maxGreen, maxBlue),
-                activeTickMarkColor: Colors.deepPurpleAccent,
-                inactiveTickMarkColor: Colors.black,
-                overlayColor: Colors.black12,
-                thumbColor: sliderColorChange(_value, sliderDistance),
-              ),
-              child: Slider(
-                min: 0.0,
-                max: sliderDistance,
-                value: _value,
-                label: 'Value',
-                onChanged: (double value) {
-                  _onChanged(value);
-                },
-              ),
+        child: Center(
+          child: SliderTheme(
+            data: theme.sliderTheme.copyWith(
+              activeTrackColor:
+                  Color.fromARGB(255, minRed, minGreen, minBlue),
+              inactiveTrackColor:
+                  Color.fromARGB(255, maxRed, maxGreen, maxBlue),
+              activeTickMarkColor: Colors.deepPurpleAccent,
+              inactiveTickMarkColor: Colors.black,
+              overlayColor: Colors.black12,
+              thumbColor: sliderColorChange(_value, sliderDistance),
             ),
-          ],
+            child: Slider(
+              min: 0.0,
+              max: sliderDistance,
+              value: _value,
+              label: 'Value',
+              onChanged: (double value) {
+                _onChanged(value);
+              },
+            ),
+          ),
         ),
       ),
     );
